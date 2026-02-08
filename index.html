@@ -86,7 +86,7 @@ th {
   font-weight: bold;
 }
 
-/* Compact info rows */
+/* Compact info */
 .inline-summary {
   background: #ffffff;
   border: 1px solid #e5e7eb;
@@ -152,11 +152,44 @@ function showPage(pageId) {
 <div id="pipeline" class="page active">
   <h1>Pipeline Quality (Next 7 Days)</h1>
 
+  <h3>Projects Requiring Action (Next 7 Days)</h3>
+
   <table>
-    <tr><th>Client</th><th>Active Projects</th><th>Yield Trend</th><th>Status</th></tr>
-    <tr><td>BCG</td><td>5</td><td>↑ Improving</td><td style="color:#15803d">Green</td></tr>
-    <tr><td>McKinsey</td><td>4</td><td>→ Flat</td><td style="color:#b45309">Amber</td></tr>
-    <tr><td>Bain</td><td>3</td><td>↓ Declining</td><td style="color:#b91c1c">Red</td></tr>
+    <tr>
+      <th>Project</th>
+      <th>Client</th>
+      <th>Status</th>
+      <th>Primary Constraint</th>
+      <th>Action Needed</th>
+      <th>Owner</th>
+    </tr>
+
+    <tr>
+      <td>Toys</td>
+      <td>McKinsey</td>
+      <td>P0 (48h+)</td>
+      <td>Client response lag</td>
+      <td>Escalate with client</td>
+      <td>Ritu</td>
+    </tr>
+
+    <tr>
+      <td>Transport</td>
+      <td>Bain</td>
+      <td>P0</td>
+      <td>Sourcing quality</td>
+      <td>Expand expert pool</td>
+      <td>Lea</td>
+    </tr>
+
+    <tr>
+      <td>Retail</td>
+      <td>BCG</td>
+      <td>P1</td>
+      <td>Scheduling</td>
+      <td>Schedule calls</td>
+      <td>Aman</td>
+    </tr>
   </table>
 </div>
 
@@ -166,14 +199,38 @@ function showPage(pageId) {
 
   <div class="risk-strip">
     <strong>Key Risks:</strong>
-    McKinsey delay ($3,500) · 2 projects stuck in P0 · Bain low pipeline confidence
+    McKinsey delay ($3,500) · 2 projects stuck in P0 · Bain sourcing quality risk
   </div>
 
   <table>
-    <tr><th>Client</th><th>Project</th><th>Status</th><th>Revenue</th><th>Owner</th></tr>
-    <tr><td>BCG</td><td>Retail</td><td>P0</td><td>$2,000</td><td>Aman</td></tr>
-    <tr><td>McKinsey</td><td>Toys</td><td>Park</td><td>$3,500</td><td>Ritu</td></tr>
-    <tr><td>Bain</td><td>Transport</td><td>P0</td><td>$1,200</td><td>Lea</td></tr>
+    <tr>
+      <th>Client</th>
+      <th>Project</th>
+      <th>Status</th>
+      <th>Revenue</th>
+      <th>Owner</th>
+    </tr>
+    <tr>
+      <td>BCG</td>
+      <td>Retail</td>
+      <td>P0</td>
+      <td>$2,000</td>
+      <td>Aman</td>
+    </tr>
+    <tr>
+      <td>McKinsey</td>
+      <td>Toys</td>
+      <td>Park</td>
+      <td>$3,500</td>
+      <td>Ritu</td>
+    </tr>
+    <tr>
+      <td>Bain</td>
+      <td>Transport</td>
+      <td>P0</td>
+      <td>$1,200</td>
+      <td>Lea</td>
+    </tr>
   </table>
 </div>
 
@@ -187,9 +244,27 @@ function showPage(pageId) {
   </div>
 
   <table>
-    <tr><th>Week</th><th>Calls Expected</th><th>Calls Done</th><th>Yield</th><th>Revenue</th></tr>
-    <tr><td>W1</td><td>20</td><td>14</td><td>70%</td><td>$5,600</td></tr>
-    <tr><td>W2</td><td>24</td><td>17</td><td>71%</td><td>$6,200</td></tr>
+    <tr>
+      <th>Week</th>
+      <th>Calls Expected</th>
+      <th>Calls Done</th>
+      <th>Yield</th>
+      <th>Revenue</th>
+    </tr>
+    <tr>
+      <td>W1</td>
+      <td>20</td>
+      <td>14</td>
+      <td>70%</td>
+      <td>$5,600</td>
+    </tr>
+    <tr>
+      <td>W2</td>
+      <td>24</td>
+      <td>17</td>
+      <td>71%</td>
+      <td>$6,200</td>
+    </tr>
   </table>
 </div>
 
@@ -198,12 +273,19 @@ function showPage(pageId) {
   <h1>CS Efficiency</h1>
 
   <table>
-    <tr><th>CS</th><th>Calls Completed</th><th>Yield</th><th>Revenue</th></tr>
-    <tr><td>Aman</td><td>6</td><td>75%</td><td>$3,200</td></tr>
-    <tr><td>Ritu</td><td>4</td><td>67%</td><td>$2,400</td></tr>
-    <tr><td>Lea</td><td>2</td><td>40%</td><td>$800</td></tr>
-  </table>
-</div>
-
-</body>
-</html>
+    <tr>
+      <th>CS</th>
+      <th>Calls Completed</th>
+      <th>Yield</th>
+      <th>Revenue</th>
+    </tr>
+    <tr>
+      <td>Aman</td>
+      <td>6</td>
+      <td>75%</td>
+      <td>$3,200</td>
+    </tr>
+    <tr>
+      <td>Ritu</td>
+      <td>4</td>
+      <t
