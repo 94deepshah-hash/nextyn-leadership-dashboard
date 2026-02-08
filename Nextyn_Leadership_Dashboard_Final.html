@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nextyn Leadership Dashboard</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 0; background: #f7f7f7; }
+nav { background: #1f2937; padding: 12px 20px; }
+nav a { color: #ffffff; margin-right: 20px; text-decoration: none; font-weight: bold; }
+nav a:hover { text-decoration: underline; }
+.page { display: none; padding: 20px; }
+.page.active { display: block; }
+h1 { margin-top: 0; }
+table { border-collapse: collapse; width: 100%; background: #ffffff; margin-top: 12px; }
+th, td { border: 1px solid #cccccc; padding: 8px 10px; text-align: left; }
+th { background: #eeeeee; }
+.highlight { background: #ffe599; font-weight: bold; }
+</style>
+
+<script>
+function showPage(pageId) {
+  const pages = document.querySelectorAll('.page');
+  pages.forEach(p => p.classList.remove('active'));
+  document.getElementById(pageId).classList.add('active');
+}
+</script>
+</head>
+
+<body>
+
+<nav>
+  <a href="#" onclick="showPage('pipeline')">Pipeline</a>
+  <a href="#" onclick="showPage('risk')">Revenue Risk</a>
+  <a href="#" onclick="showPage('performance')">Performance</a>
+  <a href="#" onclick="showPage('efficiency')">Efficiency</a>
+</nav>
+
+<div id="pipeline" class="page active">
+  <h1>Pipeline Quality (Next 7 Days)</h1>
+  <table>
+    <tr><th>Client</th><th>Active</th><th>P0</th><th>P1</th><th>P2</th><th>Calls</th><th>Confidence</th></tr>
+    <tr><td>BCG</td><td>5</td><td>2</td><td>2</td><td>1</td><td>6</td><td>High</td></tr>
+    <tr><td>McKinsey</td><td>4</td><td>1</td><td>2</td><td>1</td><td>5</td><td>Medium</td></tr>
+    <tr><td>Bain</td><td>3</td><td>1</td><td>1</td><td>1</td><td>3</td><td>Low</td></tr>
+  </table>
+</div>
+
+<div id="risk" class="page">
+  <h1>Revenue at Risk</h1>
+  <table>
+    <tr><th>Client</th><th>Project</th><th>Status</th><th>Revenue</th><th>Reason</th></tr>
+    <tr><td>BCG</td><td>Retail</td><td>P0</td><td>$2,000</td><td>Client delay</td></tr>
+    <tr><td>McKinsey</td><td>Toys</td><td>Park</td><td>$3,500</td><td>No response</td></tr>
+    <tr><td>Bain</td><td>Transport</td><td>P0</td><td>$1,200</td><td>Sourcing gap</td></tr>
+  </table>
+</div>
+
+<div id="performance" class="page">
+  <h1>Weekly Performance Trend</h1>
+  <table>
+    <tr><th>Week</th><th>Calls Expected</th><th>Calls Done</th><th>Yield</th><th>Revenue</th></tr>
+    <tr><td>W1</td><td>20</td><td>14</td><td>70%</td><td>$5,600</td></tr>
+    <tr><td>W2</td><td>24</td><td>17</td><td>71%</td><td>$6,200</td></tr>
+    <tr class="highlight"><td>W3</td><td>28</td><td>21</td><td>75%</td><td>$7,100</td></tr>
+  </table>
+</div>
+
+<div id="efficiency" class="page">
+  <h1>CS Efficiency</h1>
+  <table>
+    <tr><th>CS</th><th>Calls</th><th>Yield</th><th>Revenue</th></tr>
+    <tr><td>CS 1</td><td>6</td><td>75%</td><td>$3,200</td></tr>
+    <tr><td>CS 2</td><td>4</td><td>67%</td><td>$2,400</td></tr>
+    <tr><td>CS 3</td><td>2</td><td>40%</td><td>$800</td></tr>
+  </table>
+</div>
+
+</body>
+</html>
