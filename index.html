@@ -11,16 +11,19 @@ body {
   background: #f7f7f7;
 }
 
-/* Header & Nav */
+/* Header */
 .header {
   background: #ffffff;
-  padding: 16px 20px;
+  padding: 14px 20px;
   border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
 }
 .header img {
-  height: 40px;
+  height: 36px;
 }
 
+/* Nav */
 nav {
   background: #1f2937;
   padding: 12px 20px;
@@ -60,7 +63,7 @@ th {
   background: #eeeeee;
 }
 
-/* KPI Strip */
+/* KPI strip */
 .kpi-strip {
   display: flex;
   gap: 16px;
@@ -83,16 +86,21 @@ th {
   font-weight: bold;
 }
 
-/* Utility */
-.highlight {
-  background: #ffe599;
-  font-weight: bold;
+/* Compact info rows */
+.inline-summary {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+  font-size: 14px;
 }
-.alert {
+
+.risk-strip {
   background: #fff7ed;
   border: 1px solid #fed7aa;
-  padding: 14px;
+  padding: 10px 14px;
   margin-bottom: 16px;
+  font-size: 14px;
 }
 </style>
 
@@ -144,7 +152,6 @@ function showPage(pageId) {
 <div id="pipeline" class="page active">
   <h1>Pipeline Quality (Next 7 Days)</h1>
 
-  <h3>Client Health Summary</h3>
   <table>
     <tr><th>Client</th><th>Active Projects</th><th>Yield Trend</th><th>Status</th></tr>
     <tr><td>BCG</td><td>5</td><td>↑ Improving</td><td style="color:#15803d">Green</td></tr>
@@ -157,28 +164,16 @@ function showPage(pageId) {
 <div id="risk" class="page">
   <h1>Revenue at Risk</h1>
 
-  <div class="alert">
-    <strong>Needs Attention Today</strong>
-    <ul>
-      <li>2 projects stuck in P0 for over 48 hours</li>
-      <li>$3,500 revenue at risk from McKinsey</li>
-      <li>Bain pipeline confidence low for next week</li>
-    </ul>
+  <div class="risk-strip">
+    <strong>Key Risks:</strong>
+    McKinsey delay ($3,500) · 2 projects stuck in P0 · Bain low pipeline confidence
   </div>
 
   <table>
-    <tr><th>Client</th><th>Project</th><th>Status</th><th>Revenue</th><th>Reason</th></tr>
-    <tr><td>BCG</td><td>Retail</td><td>P0</td><td>$2,000</td><td>Client delay</td></tr>
-    <tr><td>McKinsey</td><td>Toys</td><td>Park</td><td>$3,500</td><td>No response</td></tr>
-    <tr><td>Bain</td><td>Transport</td><td>P0</td><td>$1,200</td><td>Sourcing gap</td></tr>
-  </table>
-
-  <h3>Ownership & Risk</h3>
-  <table>
-    <tr><th>CS</th><th>Projects at Risk</th><th>Revenue at Risk</th></tr>
-    <tr><td>CS 1</td><td>2</td><td>$3,500</td></tr>
-    <tr><td>CS 2</td><td>1</td><td>$2,000</td></tr>
-    <tr><td>CS 3</td><td>1</td><td>$1,200</td></tr>
+    <tr><th>Client</th><th>Project</th><th>Status</th><th>Revenue</th><th>Owner</th></tr>
+    <tr><td>BCG</td><td>Retail</td><td>P0</td><td>$2,000</td><td>Aman</td></tr>
+    <tr><td>McKinsey</td><td>Toys</td><td>Park</td><td>$3,500</td><td>Ritu</td></tr>
+    <tr><td>Bain</td><td>Transport</td><td>P0</td><td>$1,200</td><td>Lea</td></tr>
   </table>
 </div>
 
@@ -186,24 +181,29 @@ function showPage(pageId) {
 <div id="performance" class="page">
   <h1>Weekly Performance</h1>
 
-  <div class="alert" style="background:#ecfeff; border-color:#67e8f9">
-    <strong>Week over Week</strong>
-    <ul>
-      <li>Revenue ↑ 14%</li>
-      <li>Yield ↑ 3%</li>
-      <li>Calls completed ↑ 4</li>
-    </ul>
+  <div class="inline-summary">
+    <strong>WoW:</strong>
+    Revenue ↑ 14% · Yield ↑ 3% · Calls completed ↑ 4
   </div>
 
   <table>
     <tr><th>Week</th><th>Calls Expected</th><th>Calls Done</th><th>Yield</th><th>Revenue</th></tr>
     <tr><td>W1</td><td>20</td><td>14</td><td>70%</td><td>$5,600</td></tr>
-    <tr class="highlight"><td>W2</td><td>24</td><td>17</td><td>71%</td><td>$6,200</td></tr>
+    <tr><td>W2</td><td>24</td><td>17</td><td>71%</td><td>$6,200</td></tr>
   </table>
 </div>
 
 <!-- EFFICIENCY -->
 <div id="efficiency" class="page">
   <h1>CS Efficiency</h1>
+
   <table>
-    <tr><t
+    <tr><th>CS</th><th>Calls Completed</th><th>Yield</th><th>Revenue</th></tr>
+    <tr><td>Aman</td><td>6</td><td>75%</td><td>$3,200</td></tr>
+    <tr><td>Ritu</td><td>4</td><td>67%</td><td>$2,400</td></tr>
+    <tr><td>Lea</td><td>2</td><td>40%</td><td>$800</td></tr>
+  </table>
+</div>
+
+</body>
+</html>
