@@ -102,6 +102,17 @@ th {
   margin-bottom: 16px;
   font-size: 14px;
 }
+
+.legend {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 12px 16px;
+  margin-top: 16px;
+  font-size: 14px;
+}
+.legend ul {
+  margin: 8px 0 0 18px;
+}
 </style>
 
 <script>
@@ -188,6 +199,17 @@ function showPage(pageId) {
       <td>Aman</td>
     </tr>
   </table>
+
+  <!-- STATUS DEFINITIONS -->
+  <div class="legend">
+    <strong>Status Definitions</strong>
+    <ul>
+      <li><strong>P0:</strong> Projects that are paused, may come back, or client is ghosting</li>
+      <li><strong>P1:</strong> Active custom recruitment and screening needs to be done</li>
+      <li><strong>P2:</strong> Active screening pending but custom recruitment is done</li>
+      <li><strong>P3:</strong> Calls are set up, or low-effort work remains (or just monitoring)</li>
+    </ul>
+  </div>
 </div>
 
 <!-- REVENUE RISK -->
