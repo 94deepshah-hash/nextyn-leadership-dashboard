@@ -3,18 +3,97 @@
 <head>
 <meta charset="UTF-8">
 <title>Nextyn Leadership Dashboard</title>
+
 <style>
-body { font-family: Arial, sans-serif; margin: 0; background: #f7f7f7; }
-nav { background: #1f2937; padding: 12px 20px; }
-nav a { color: #ffffff; margin-right: 20px; text-decoration: none; font-weight: bold; }
-nav a:hover { text-decoration: underline; }
-.page { display: none; padding: 20px; }
-.page.active { display: block; }
-h1 { margin-top: 0; }
-table { border-collapse: collapse; width: 100%; background: #ffffff; margin-top: 12px; }
-th, td { border: 1px solid #cccccc; padding: 8px 10px; text-align: left; }
-th { background: #eeeeee; }
-.highlight { background: #ffe599; font-weight: bold; }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f7f7f7;
+}
+
+/* Header & Nav */
+.header {
+  background: #ffffff;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.header img {
+  height: 40px;
+}
+
+nav {
+  background: #1f2937;
+  padding: 12px 20px;
+}
+nav a {
+  color: #ffffff;
+  margin-right: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Pages */
+.page {
+  display: none;
+  padding: 20px;
+}
+.page.active {
+  display: block;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background: #ffffff;
+  margin-top: 12px;
+}
+th, td {
+  border: 1px solid #cccccc;
+  padding: 8px 10px;
+  text-align: left;
+}
+th {
+  background: #eeeeee;
+}
+
+/* KPI Strip */
+.kpi-strip {
+  display: flex;
+  gap: 16px;
+  padding: 16px 20px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+.kpi {
+  flex: 1;
+  background: #ffffff;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+}
+.kpi-title {
+  font-size: 12px;
+  color: #6b7280;
+}
+.kpi-value {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Utility */
+.highlight {
+  background: #ffe599;
+  font-weight: bold;
+}
+.alert {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  padding: 14px;
+  margin-bottom: 16px;
+}
 </style>
 
 <script>
@@ -27,29 +106,13 @@ function showPage(pageId) {
 </head>
 
 <body>
-<div style="padding:16px 20px; background:#ffffff; border-bottom:1px solid #e5e7eb;">
-  <img src="NX19-DXoqEBbn.png" alt="Nextyn Logo" style="height:40px;">
-</div>
-  <div style="display:flex; gap:16px; padding:16px 20px; background:#f9fafb; border-bottom:1px solid #e5e7eb;">
-  <div style="flex:1; background:#ffffff; padding:12px; border:1px solid #e5e7eb;">
-    <div style="font-size:12px; color:#6b7280;">Total Revenue (7 days)</div>
-    <div style="font-size:20px; font-weight:bold;">$18,900</div>
-  </div>
-  <div style="flex:1; background:#ffffff; padding:12px; border:1px solid #e5e7eb;">
-    <div style="font-size:12px; color:#6b7280;">Revenue at Risk</div>
-    <div style="font-size:20px; font-weight:bold; color:#b91c1c;">$6,700</div>
-  </div>
-  <div style="flex:1; background:#ffffff; padding:12px; border:1px solid #e5e7eb;">
-    <div style="font-size:12px; color:#6b7280;">Overall Yield</div>
-    <div style="font-size:20px; font-weight:bold;">72%</div>
-  </div>
-  <div style="flex:1; background:#ffffff; padding:12px; border:1px solid #e5e7eb;">
-    <div style="font-size:12px; color:#6b7280;">Active Projects</div>
-    <div style="font-size:20px; font-weight:bold;">12</div>
-  </div>
+
+<!-- LOGO -->
+<div class="header">
+  <img src="NX19-DXoqEBbn.png" alt="Nextyn Logo">
 </div>
 
-
+<!-- NAV -->
 <nav>
   <a href="#" onclick="showPage('pipeline')">Pipeline</a>
   <a href="#" onclick="showPage('risk')">Revenue Risk</a>
@@ -57,24 +120,46 @@ function showPage(pageId) {
   <a href="#" onclick="showPage('efficiency')">Efficiency</a>
 </nav>
 
+<!-- KPI STRIP -->
+<div class="kpi-strip">
+  <div class="kpi">
+    <div class="kpi-title">Total Revenue (7 days)</div>
+    <div class="kpi-value">$18,900</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-title">Revenue at Risk</div>
+    <div class="kpi-value" style="color:#b91c1c">$6,700</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-title">Overall Yield</div>
+    <div class="kpi-value">72%</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-title">Active Projects</div>
+    <div class="kpi-value">12</div>
+  </div>
+</div>
+
+<!-- PIPELINE -->
 <div id="pipeline" class="page active">
   <h1>Pipeline Quality (Next 7 Days)</h1>
+
+  <h3>Client Health Summary</h3>
   <table>
-    <tr><th>Client</th><th>Active</th><th>P0</th><th>P1</th><th>P2</th><th>Calls</th><th>Confidence</th></tr>
-    <tr><td>BCG</td><td>5</td><td>2</td><td>2</td><td>1</td><td>6</td><td>High</td></tr>
-    <tr><td>McKinsey</td><td>4</td><td>1</td><td>2</td><td>1</td><td>5</td><td>Medium</td></tr>
-    <tr><td>Bain</td><td>3</td><td>1</td><td>1</td><td>1</td><td>3</td><td>Low</td></tr>
+    <tr><th>Client</th><th>Active Projects</th><th>Yield Trend</th><th>Status</th></tr>
+    <tr><td>BCG</td><td>5</td><td>↑ Improving</td><td style="color:#15803d">Green</td></tr>
+    <tr><td>McKinsey</td><td>4</td><td>→ Flat</td><td style="color:#b45309">Amber</td></tr>
+    <tr><td>Bain</td><td>3</td><td>↓ Declining</td><td style="color:#b91c1c">Red</td></tr>
   </table>
 </div>
 
+<!-- REVENUE RISK -->
 <div id="risk" class="page">
   <h1>Revenue at Risk</h1>
-  <div id="risk" class="page">
-  <h1>Revenue at Risk</h1>
 
-  <div style="background:#fff7ed; border:1px solid #fed7aa; padding:14px; margin-bottom:16px;">
+  <div class="alert">
     <strong>Needs Attention Today</strong>
-    <ul style="margin:8px 0 0 18px;">
+    <ul>
       <li>2 projects stuck in P0 for over 48 hours</li>
       <li>$3,500 revenue at risk from McKinsey</li>
       <li>Bain pipeline confidence low for next week</li>
@@ -82,35 +167,43 @@ function showPage(pageId) {
   </div>
 
   <table>
-    ...
-
-  <table>
     <tr><th>Client</th><th>Project</th><th>Status</th><th>Revenue</th><th>Reason</th></tr>
     <tr><td>BCG</td><td>Retail</td><td>P0</td><td>$2,000</td><td>Client delay</td></tr>
     <tr><td>McKinsey</td><td>Toys</td><td>Park</td><td>$3,500</td><td>No response</td></tr>
     <tr><td>Bain</td><td>Transport</td><td>P0</td><td>$1,200</td><td>Sourcing gap</td></tr>
   </table>
+
+  <h3>Ownership & Risk</h3>
+  <table>
+    <tr><th>CS</th><th>Projects at Risk</th><th>Revenue at Risk</th></tr>
+    <tr><td>CS 1</td><td>2</td><td>$3,500</td></tr>
+    <tr><td>CS 2</td><td>1</td><td>$2,000</td></tr>
+    <tr><td>CS 3</td><td>1</td><td>$1,200</td></tr>
+  </table>
 </div>
 
+<!-- PERFORMANCE -->
 <div id="performance" class="page">
-  <h1>Weekly Performance Trend</h1>
+  <h1>Weekly Performance</h1>
+
+  <div class="alert" style="background:#ecfeff; border-color:#67e8f9">
+    <strong>Week over Week</strong>
+    <ul>
+      <li>Revenue ↑ 14%</li>
+      <li>Yield ↑ 3%</li>
+      <li>Calls completed ↑ 4</li>
+    </ul>
+  </div>
+
   <table>
     <tr><th>Week</th><th>Calls Expected</th><th>Calls Done</th><th>Yield</th><th>Revenue</th></tr>
     <tr><td>W1</td><td>20</td><td>14</td><td>70%</td><td>$5,600</td></tr>
-    <tr><td>W2</td><td>24</td><td>17</td><td>71%</td><td>$6,200</td></tr>
-    <tr class="highlight"><td>W3</td><td>28</td><td>21</td><td>75%</td><td>$7,100</td></tr>
+    <tr class="highlight"><td>W2</td><td>24</td><td>17</td><td>71%</td><td>$6,200</td></tr>
   </table>
 </div>
 
+<!-- EFFICIENCY -->
 <div id="efficiency" class="page">
   <h1>CS Efficiency</h1>
   <table>
-    <tr><th>CS</th><th>Calls</th><th>Yield</th><th>Revenue</th></tr>
-    <tr><td>CS 1</td><td>6</td><td>75%</td><td>$3,200</td></tr>
-    <tr><td>CS 2</td><td>4</td><td>67%</td><td>$2,400</td></tr>
-    <tr><td>CS 3</td><td>2</td><td>40%</td><td>$800</td></tr>
-  </table>
-</div>
-
-</body>
-</html>
+    <tr><t
